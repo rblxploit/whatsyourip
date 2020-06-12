@@ -1,12 +1,5 @@
 const express = require("express");
 const app = express();
-const expressip = require("express-ip");
-const PORT = process.env.PORT || 5000;
-const path = require("path");
-
-app.use(expressip().getIpInfoMiddleware);
-
-app.set("PORT", PORT);
 
 app.get("/", function (req, res) {
   var ip =
@@ -17,10 +10,8 @@ app.get("/", function (req, res) {
   res.send(ip);
 });
 
-app.listen(app.get("PORT"), function () {
+app.listen(3000, () => {
   console.log(
-    "Express started on http://localhost:" +
-      app.get("PORT") +
-      "; press Ctrl-C to terminate."
+    "Server started at port 3000."
   );
 });
